@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101411"><meta name="description" content="Evolução e produtividade, todos os dias.">
+<link rel="manifest" href="./manifest.json"><link rel="icon" href="./icons/icon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="./icons/icon-192.png">
+<link rel="stylesheet" href="./styles.css"><title>HAKI — Evolução & Produtividade</title>
+</head><body><div class="app-shell">
+<header class="topbar"><div class="brand-mark">覇</div><div class="brand-copy"><p class="eyebrow">PROJETO PESSOAL</p><h1>HAKI <span>DO REI</span></h1></div><button id="installBtn" class="install-btn hidden">＋ Instalar</button></header>
+<nav class="tabs"><button class="tab active" data-tab="evolution">✦ Evolução</button><button class="tab" data-tab="productivity">⚡ Produtividade</button></nav>
+<main>
+<section id="evolutionView">
+<section class="hero panel"><div class="hero-top"><div><p class="eyebrow">PONTUAÇÃO TOTAL</p><div class="total-line"><span id="totalScore">0</span><span class="pts">PTS</span></div></div><div class="rank-stamp"><span>✦</span><span id="rankName">INICIANTE</span></div></div><div class="level-track"><div id="levelProgress" class="level-progress"></div></div><div class="level-foot"><span id="nextGoalText">Próxima meta: 10 pts</span><span id="progressPercent">0%</span></div><p id="rankDescription" class="rank-description">Toda evolução começa com uma escolha.</p></section>
+<section class="date-panel panel"><button id="prevDay" class="date-arrow">‹</button><div class="date-center"><p class="eyebrow" id="dayLabel">REGISTRO DO DIA</p><strong id="selectedDateLabel">Hoje</strong><span id="dayTotal" class="day-total">0 pts</span></div><button id="nextDay" class="date-arrow">›</button></section>
+<div id="pastDayNotice" class="notice hidden">Dia anterior: visualização somente leitura. Volte para hoje para registrar.</div>
+<div class="section-heading"><div><p class="eyebrow">SEUS ATRIBUTOS</p><h2>Forje sua evolução</h2></div><button id="addAttribute" class="primary-btn">＋ Criar atributo</button></div>
+<div id="attributeList" class="attribute-list"></div>
+<section class="section-heading goals-heading"><div><p class="eyebrow">PRÓXIMOS DESAFIOS</p><h2>Metas de evolução</h2></div><span id="goalCount" class="goal-count">0/6</span></section><section id="goalsList" class="goals-list"></section>
+<section class="section-heading history-heading"><div><p class="eyebrow">CONSISTÊNCIA</p><h2>Seu histórico</h2></div><button id="exportBtn" class="text-button">Exportar backup ↗</button></section>
+<section class="panel history-panel"><div class="history-summary"><div><span id="activeDays" class="history-number">0</span><small>dias com registros</small></div><div><span id="bestDay" class="history-number">0</span><small>melhor dia (pts)</small></div><div><span id="streak" class="history-number">0</span><small>dias seguidos</small></div></div><div id="historyList" class="history-list"></div></section>
+<p class="footer-note">A pontuação é uma ferramenta de reflexão, não uma medida do seu valor. Seja honesto — e justo consigo.</p>
+</section>
+<section id="productivityView" class="hidden">
+<section class="hero productivity-hero panel"><p class="eyebrow">MISSÃO DE HOJE</p><div class="mission-line"><div><strong id="missionCount">0</strong><span> / <span id="missionGoal">100</span> prospecções</span></div><span id="missionPercent" class="mission-percent">0%</span></div><div class="mission-track"><span id="missionBar"></span></div><div class="mission-bottom"><span id="missionStatus">Sua missão começa agora.</span><button id="editGoal" class="text-button">Alterar meta</button></div></section>
+<section class="date-panel panel"><button id="prodPrevDay" class="date-arrow">‹</button><div class="date-center"><p class="eyebrow" id="prodDayLabel">MISSÃO DO DIA</p><strong id="prodDateLabel">Hoje</strong><span id="prodDayTotal" class="day-total">0 prospecções</span></div><button id="prodNextDay" class="date-arrow">›</button></section>
+<div id="prodPastNotice" class="notice hidden">Dia anterior: histórico somente leitura.</div>
+<div class="section-heading"><div><p class="eyebrow">SEUS CANAIS</p><h2>Prospecção em tempo real</h2></div><button id="addChannel" class="primary-btn">＋ Criar canal</button></div>
+<div id="channelList" class="channel-list"></div>
+<section class="panel meeting-card"><div><p class="eyebrow">RESULTADO DA PROSPECÇÃO</p><h3>Reuniões agendadas</h3><small>Registre quantas reuniões você marcou hoje.</small></div><div class="counter"><button id="meetingMinus" class="counter-btn minus">−</button><strong id="meetingCount">0</strong><button id="meetingPlus" class="counter-btn plus">＋</button></div></section>
+<section class="section-heading analysis-heading"><div><p class="eyebrow">ANÁLISE DO DIA</p><h2>Seu desempenho</h2></div><span class="live-dot">● AO VIVO</span></section>
+<section id="dayRating" class="rating-card panel"><div class="rating-symbol">✦</div><div><p class="eyebrow">CLASSIFICAÇÃO ATUAL</p><h2 id="ratingName">IMPRODUTIVO</h2><p id="ratingDescription">Comece. Cada contato conta.</p></div><div class="rating-total"><strong id="ratingTotal">0</strong><small>PROSPECÇÕES</small></div></section>
+<section class="panel stats-panel"><div class="stats-grid"><div><strong id="weekAverage">0</strong><small>MÉDIA DIÁRIA · 7 DIAS</small></div><div><strong id="monthTotal">0</strong><small>TOTAL NO MÊS</small></div><div><strong id="personalRecord">0</strong><small>RECORDE PESSOAL</small></div><div><strong id="goalDays">0</strong><small>METAS BATIDAS</small></div></div></section>
+<section class="section-heading history-heading"><div><p class="eyebrow">CONSISTÊNCIA</p><h2>Calendário de produtividade</h2></div><button id="exportProdBtn" class="text-button">Exportar ↗</button></section>
+<section class="panel calendar-panel"><div class="calendar-head"><button id="calPrev" class="date-arrow small-arrow">‹</button><strong id="calendarMonth">Mês</strong><button id="calNext" class="date-arrow small-arrow">›</button></div><div class="calendar-grid" id="calendarGrid"></div><div class="legend"><span><i class="level-0"></i> 0–5</span><span><i class="level-1"></i> 6–40</span><span><i class="level-2"></i> 41–99</span><span><i class="level-3"></i> 100+</span></div></section>
+<section class="section-heading history-heading"><div><p class="eyebrow">ÚLTIMOS REGISTROS</p><h2>Histórico diário</h2></div></section><section id="prodHistory" class="panel history-panel"></section>
+<p class="footer-note">Volume gera oportunidades. Qualidade transforma oportunidades em negócios. Registre com honestidade.</p>
+</section>
+</main></div>
+<div id="modal" class="modal hidden"><div class="modal-backdrop" data-close-modal></div><div class="modal-card"><button id="modalClose" class="modal-close">×</button><p class="eyebrow" id="modalEyebrow">PERSONALIZAR</p><h2 id="modalTitle">Criar</h2><form id="modalForm"><div id="modalFields"></div><div class="modal-actions"><button type="button" class="secondary-btn" data-close-modal>Cancelar</button><button class="primary-btn" type="submit">Salvar</button></div></form></div></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div><script src="./app.js"></script></body></html>
